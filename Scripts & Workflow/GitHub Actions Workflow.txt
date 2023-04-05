@@ -1,0 +1,51 @@
+GitHub Actions ---> Amazon S3
+
+Open New Repo
+
+	> git clone [URL]
+	> cd [name]
+	> code .
+	
+Visual Studio Code
+	.github/workflows
+			> main.yaml
+					> index.yaml
+
+@terminal
+	> git add .
+			> git commit -m "msg"
+					> git push origin master
+
+Actions -->
+
+Settings
+	> Secretes & Variables 
+			> Actions
+
+New Repo Secretes
+> Name : AWS_S3_BUCKET
+> Secrete : Bucket Name
+								> Add Secrete
+								
+Same for User Access Identity & Key
+								> Add Secrete
+								
+Make some changes in code 
+then,
+		Again > git push 
+
+Check GitHub Actions
+			> Automatically Build & Deployment is start
+			
+Succeesful Deployment
+			> Bucket URL 
+						> Enter
+									> Webpage is working
+									
+Again do some changes in code,
+			> Check the Webpage
+						> New Changes can be Seen
+						
+Done !!
+					
+			

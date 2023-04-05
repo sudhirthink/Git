@@ -1,0 +1,45 @@
+Upload Database on EC2
+
+Step 1: Firstly rename the created EC2 instances
+
+    1) DB-Instance
+    2) Backend-Instance
+    3) UI-Instance
+    
+    Steps to rename the EC2 instance:
+    
+    Copy the instance ID of the instance that you want to rename.
+
+    Use the command to rename the instance,
+        > aws ec2 create-tags --resources [instance-id] --tags Key=Name,Value=[new-name]
+    replacing [instance-id] with the instance ID you copied and [new-name] with the new name you want for the instance.
+
+    Verify that the instance has been renamed by typing the command 
+        > aws ec2 describe-instances
+    
+    
+Step 2: 
+    1) Download the given SSH key to the local machine
+    2) Write the below command we get after creating the instance
+        ssh -i "Keypair.pem" ubuntu@EC2-IP.ap-south-1.compute.amazonaws.com
+       replace the EC2-IP line by the actual IP address of the given EC2 instances
+
+       
+Step 3:
+    1) Install the MySQL server.
+        > $ sudo apt-get install mysql-client
+    2) Configure the MySQL server to accept remote connections.
+    3) Connect to your MySQL Database:
+            > $ mysql -h <hostname> -u <username> -p
+        4) Enter the password for the user when prompted and you should be connected to the MySQL server.
+        5) Try to access the database from DBeaver on PORT:3306 from local
+           Try to see the existing databases by using 
+               > show databases;
+           Try to create schema using 
+               > create schema AirGP;
+           If schema is created succesfully then we can say that, MySql is successfully installed on EC2
+    6) Test the connection and begin using your database.
+	
+	
+	~ Neeraj Chavan, Sudhir Sonawane,  Abhishar Shinde
+	=============================================================================
